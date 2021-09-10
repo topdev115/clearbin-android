@@ -2,25 +2,23 @@ package com.clearbin.app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
+import android.util.DisplayMetrics;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.ViewCompat;
 
 import com.camerakit.CameraKit;
 import com.camerakit.CameraKitView;
-import com.camerakit.type.CameraFlash;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -42,10 +40,18 @@ public class MainActivity extends AppCompatActivity {
         Typeface customFont = Typeface.createFromAsset(getAssets(),"fonts/Oswald-Regular.ttf");
 
         ((TextView) findViewById(R.id.titleText)).setTypeface(customFont);
-        ((TextView) findViewById(R.id.hintText)).setTypeface(customFont);
+        TextView hintTextView = (TextView) findViewById(R.id.hintText);
+        hintTextView.setTypeface(customFont);
+
+        ViewCompat.setOnApplyWindowInsetsListener(cameraView, (v, insets) -> {
+            ConstraintLayout.LayoutParams newLayoutParams = (ConstraintLayout.LayoutParams) hintTextView.getLayoutParams();
+            newLayoutParams.bottomMargin = dp2px(insets.getSystemWindowInsetBottom() > 0 ? 64 : 24);
+            hintTextView.setLayoutParams(newLayoutParams);
+
+            return insets.consumeSystemWindowInsets();
+        });
 
         ((ImageView) findViewById(R.id.shutter)).setOnClickListener(view -> cameraView.captureImage((cameraKitView, capturedImage) -> {
-            Log.d("CAPTURE", "TTTTTTTTTT");
             // Play shutter audio
             MediaActionSound mSound = new MediaActionSound();
             mSound.playWithStreamVolume(MediaActionSound.SHUTTER_CLICK, (Context) MainActivity.this, AudioManager.STREAM_MUSIC, 0.5f);
@@ -146,5 +152,10 @@ public class MainActivity extends AppCompatActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
+    }
+
+    private int dp2px(int dp) {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }
 }
