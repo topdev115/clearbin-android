@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">ClearBin</string>
+    <string name="app_name">Clear Bin</string>
+    <string name="copyright">©2021 CLEAR BIN. All rights reserved.</string>
+    <string name="hint_text">Click on the camera icon to get started</string>
+    <string name="material"><u>Material:</u></string>
+    <string name="recyclable"><u>Recyclable:</u></string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="quality"><u>Quality:</u></string>
+    <string name="desc">Still clean the inside and make sure item is dry</string>
+    <string name="no_results">No Results</string>
+    <string name="search">Search</string>
+    <string name="enter_placeholder">Enter Item Here</string>
 </resources>

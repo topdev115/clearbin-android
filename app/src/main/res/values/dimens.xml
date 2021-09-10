@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="fragment_section_margin_vertical">12dp</dimen>
+    <dimen name="section_margin_inside">4dp</dimen>
+    <dimen name="text_margin_horizontal">24dp</dimen>
+    <dimen name="label_font_size">28sp</dimen>
+    <dimen name="result_font_size">38sp</dimen>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ResultFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/fragment_section_margin_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/materialLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/material"
+            android:textColor="@color/black"
+            android:textSize="@dimen/label_font_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/materialText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
+            android:layout_marginTop="@dimen/section_margin_inside"
+            android:text="@string/no_results"
+            android:textColor="@color/black"
+            android:textSize="@dimen/result_font_size"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/fragment_section_margin_vertical"
+        android:layout_marginBottom="@dimen/fragment_section_margin_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/section_margin_inside"
+            android:layout_marginHorizontal="@dimen/text_margin_horizontal"
+            android:text="@string/search"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/result_font_size"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>
