@@ -1,13 +1,19 @@
 package com.clearbin.app;
 
+import android.app.Dialog;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,5 +78,28 @@ public class ResultFragment extends BaseBottomSheetDialogFragment {
         descriptionText.setTextColor(textColor);
 
         return view;
+    }
+
+    private View bottomSheet;
+    @Override public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            bottomSheet = dialog.findViewById(R.id.design_bottom_sheet);
+            // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //     bottomSheet.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+            // }
+            View view = getView();
+            view.post(() -> {
+                View parent = (View) view.getParent();
+                CoordinatorLayout.LayoutParams params =
+                        (CoordinatorLayout.LayoutParams) (parent).getLayoutParams();
+                CoordinatorLayout.Behavior behavior = params.getBehavior();
+                BottomSheetBehavior bottomSheetBehavior = (BottomSheetBehavior) behavior;
+                bottomSheetBehavior.setPeekHeight(view.getMeasuredHeight());
+
+                ((View) bottomSheet.getParent()).setBackgroundColor(Color.TRANSPARENT);
+            });
+        }
     }
 }

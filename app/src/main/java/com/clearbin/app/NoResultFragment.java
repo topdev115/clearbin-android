@@ -42,11 +42,12 @@ public class NoResultFragment extends BaseBottomSheetDialogFragment {
         Typeface customFont = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Oswald-Regular.ttf");
 
         ((TextView) view.findViewById(R.id.materialLabel)).setTypeface(customFont);
-        ((TextView) view.findViewById(R.id.materialText)).setTypeface(customFont);
+        TextView materialText =  (TextView) view.findViewById(R.id.materialText);
+        materialText.setTypeface(customFont);
+        materialText.setTextColor(getColor(R.color.no_color));
 
         TextView searchButton = (TextView) view.findViewById(R.id.searchButton);
         searchButton.setTypeface(customFont);
-        searchButton.setTextColor(getColor(R.color.no_color));
         searchButton.setBackgroundResource(R.drawable.button_border);
 
         searchButton.setOnClickListener(view1 -> {

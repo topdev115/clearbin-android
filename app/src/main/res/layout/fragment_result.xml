@@ -28,9 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_margin_horizontal"
-            android:layout_marginTop="@dimen/section_margin_inside"
             android:textColor="@color/black"
-            android:textSize="@dimen/result_font_size"
+            android:textSize="@dimen/material_font_size"
             android:textStyle="bold"
             tools:text="Plastic"/>
 
@@ -56,7 +55,6 @@
             android:id="@+id/recyclableText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/section_margin_inside"
             android:textColor="@color/black"
             android:textSize="@dimen/result_font_size"
             android:textStyle="bold"
@@ -86,11 +84,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_margin_horizontal"
-            android:layout_marginTop="@dimen/section_margin_inside"
             android:text="@string/desc"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="@dimen/label_font_size"
+            android:textSize="@dimen/desc_font_size"
             android:textStyle="bold" />
 
     </LinearLayout>

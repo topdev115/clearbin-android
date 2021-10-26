@@ -27,10 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_margin_horizontal"
-            android:layout_marginTop="@dimen/section_margin_inside"
             android:text="@string/no_results"
             android:textColor="@color/black"
-            android:textSize="@dimen/result_font_size"
+            android:textSize="@dimen/material_font_size"
             android:textStyle="bold"/>
 
     </LinearLayout>
@@ -52,7 +51,7 @@
             android:text="@string/search"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="@dimen/result_font_size"
+            android:textSize="@dimen/material_font_size"
             android:textStyle="bold" />
 
     </LinearLayout>
